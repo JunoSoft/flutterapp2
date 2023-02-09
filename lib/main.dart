@@ -5,7 +5,8 @@ import 'ansuer.dart';
 void main() {
   runApp(const MyApp());
 }
-class MyApp extends StatefulWidget{
+
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
   @override
   State<StatefulWidget> createState() {
@@ -13,17 +14,30 @@ class MyApp extends StatefulWidget{
   }
 }
 
-class MyAppState extends State<MyApp>{
-
-  var questionIndex = 0;
-  void answerQuestion(){
-    setState(() { 
-    questionIndex++;
+class MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
+  void _answerQuestion() {
+    setState(() {
+      _questionIndex++;
     });
   }
+
   @override
   Widget build(BuildContext context) {
-    var questions =["What do you want ?","What your favolite color","No more questions"];
+    var questions = [
+      {
+        'questionText': 'What your favolite color',
+        'answer': ['Red', 'Blue', 'Green', 'White']
+      },
+      {
+        'questionText': 'What is Your name?',
+        'answer': ['Albert', 'Juno', 'MAx', 'Didier']
+      },
+      {
+        'questionText': 'Where do you live',
+        'answer': ['Kimironko', 'Gatsata', 'Kacyiru']
+      }
+    ];
 
     return MaterialApp(
       home: Scaffold(
@@ -31,12 +45,12 @@ class MyAppState extends State<MyApp>{
           title: const Text('My first App'),
         ),
         body: Column(
-          children:[
-           Question(questions[questionIndex]),
-           Ansuer(answerQuestion),
-           Ansuer(answerQuestion),
-           Ansuer(answerQuestion),
-           Ansuer(answerQuestion),
+          children: [
+            Question((questions[_questionIndex]['questionText']).toString()),
+            ...(questions[_questionIndex]['answer'] as List<String>).map((answer){ 
+              return Ansuer(_answerQuestion,answer);
+            }).toList()
+        
           ],
         ),
       ),
