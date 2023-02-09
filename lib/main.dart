@@ -44,7 +44,7 @@ class MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('My first App'),
         ),
-        body: Column(
+        body: _questionIndex<questions.length? Column(
           children: [
             Question(questions[_questionIndex]['questionText'] as  String),
             ...(questions[_questionIndex]['answer'] as List<String>).map((answer){ 
@@ -52,7 +52,7 @@ class MyAppState extends State<MyApp> {
             }).toList()
         
           ],
-        ),
+        ):const  Center(child:Text("Thank you for visiting!")),
       ),
     );
   }
