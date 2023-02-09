@@ -7,8 +7,6 @@ class todoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Center(
-      Text:"hello everyone"
-    );
+    return  
   }
 }
