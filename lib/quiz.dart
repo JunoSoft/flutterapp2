@@ -1,11 +1,26 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/material.dart';
+import './Question.dart';
+import './ansuer.dart';
 
 class Quiz extends StatelessWidget {
-  const Quiz({super.key});
+  final List<Map<String, Object>> questions;
+  final int questionIndex;
+  final VoidCallback answerQuestion;
+  const Quiz(
+      {required this.answerQuestion,
+      required this.questionIndex,
+      required this.questions,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(
+      children: [
+        Question(questions[questionIndex]['questionText'] as String),
+        ...(questions[questionIndex]['answer'] as List<String>).map((answer) {
+          return Ansuer(answerQuestion, answer);
+        }).toList()
+      ],
+    );
   }
 }
