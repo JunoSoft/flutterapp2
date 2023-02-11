@@ -27,8 +27,10 @@ class MyAppState extends State<MyApp> {
   }
 
   void _resetQuestions() {
-    _questionIndex = 0;
-    _totalScore = 0;
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
   }
 
   @override
@@ -73,7 +75,7 @@ class MyAppState extends State<MyApp> {
                 answerQuestion: _answerQuestion,
                 questionIndex: _questionIndex,
                 questions: questions)
-            : Result(resultScore: _totalScore),
+            : Result(resultScore: _totalScore, resetQuestion: _resetQuestions),
       ),
     );
   }
