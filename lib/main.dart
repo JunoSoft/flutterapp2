@@ -23,8 +23,12 @@ class MyAppState extends State<MyApp> {
     _totalScore += score;
     setState(() {
       _questionIndex++;
-      
     });
+  }
+
+  void _resetQuestions() {
+    _questionIndex = 0;
+    _totalScore = 0;
   }
 
   @override
@@ -33,28 +37,28 @@ class MyAppState extends State<MyApp> {
       {
         'questionText': 'What your favolite color',
         'answer': [
-          {'text': 'Red','score':10},
-          {'text': 'Blue','score':5},
-          {'text': 'Green','score':3},
-          {'text': 'White','score':1}
+          {'text': 'Red', 'score': 10},
+          {'text': 'Blue', 'score': 5},
+          {'text': 'Green', 'score': 3},
+          {'text': 'White', 'score': 1}
         ]
       },
       {
         'questionText': 'What is Your name?',
-        'answer':  [
-          {'text': 'Albert','score':5},
-          {'text': 'Juno','score':2},
-          {'text': 'Max','score':2},
-          {'text': 'Didier','score':1}
+        'answer': [
+          {'text': 'Albert', 'score': 5},
+          {'text': 'Juno', 'score': 2},
+          {'text': 'Max', 'score': 2},
+          {'text': 'Didier', 'score': 1}
         ]
       },
       {
         'questionText': 'Where do you live',
         'answer': [
-          {'text': 'Snake','score':-10},
-          {'text': 'Elephant','score':5},
-          {'text': 'Lion','score':5},
-          {'text': 'Flog','score':1}
+          {'text': 'Snake', 'score': -10},
+          {'text': 'Elephant', 'score': 5},
+          {'text': 'Lion', 'score': 5},
+          {'text': 'Flog', 'score': 1}
         ]
       }
     ];
@@ -69,7 +73,7 @@ class MyAppState extends State<MyApp> {
                 answerQuestion: _answerQuestion,
                 questionIndex: _questionIndex,
                 questions: questions)
-            : Result(resultScore:_totalScore),
+            : Result(resultScore: _totalScore),
       ),
     );
   }
