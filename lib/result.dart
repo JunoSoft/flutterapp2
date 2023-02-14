@@ -9,9 +9,9 @@ class Result extends StatelessWidget {
     if (resultScore <= 8) {
       resultText = 'you are too Bad';
     } else if (resultScore <= 20) {
-      resultText = 'you are good for sure';
+      resultText = 'You are good for sure';
     } else {
-      resultText = 'no classed';
+      resultText = 'Not Important';
     }
     return resultText;
   }
@@ -22,7 +22,7 @@ class Result extends StatelessWidget {
         child: Column(children: [
       Text(resultPhrase,
           style: const TextStyle(fontSize: 34, fontWeight: FontWeight.bold)),
-      TextButton(onPressed:resetQuestion, child:const  Text('Restart Quiz'))
+      TextButton(onPressed:resetQuestion, child:const Text('Restart Quiz'))
     ]));
   }
 }
